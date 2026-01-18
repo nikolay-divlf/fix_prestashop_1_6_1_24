@@ -3046,7 +3046,8 @@ class BlockLayered extends Module
 
 	private static function getQuantityFilterSubQuery($filter_value, $ignore_join = false)
 	{
-		if (count($filter_value) == 2 || empty($filter_value))
+	    // update nikolay
+		if ($filter_value && count($filter_value) == 2 || empty($filter_value))
 			return array();
 
 		$query_filters_join = '';
@@ -3075,7 +3076,7 @@ class BlockLayered extends Module
 	private static function getConditionFilterSubQuery($filter_value, $ignore_join = false)
 	{
 	    // update nikolay
-		if (count($filter_value) == 3 || empty($filter_value))
+		if ($filter_value && count($filter_value) == 3 || empty($filter_value))
 			return array();
 
 		$query_filters = ' AND p.condition IN (';
